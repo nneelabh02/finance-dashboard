@@ -1,0 +1,26 @@
+{
+  "transactions": [
+    {
+      "id": "1",
+      "amount": 5000,
+      "category": "Salary",
+      "type": "income",
+      "date": "2026-04-01"
+    },
+    {
+      "id": "2",
+      "amount": 1200,
+      "category": "Food",
+      "type": "expense",
+      "date": "2026-04-02"
+    },
+    {
+      "amount": 2121,
+      "category": "cat",
+      "type": "expense",
+      "date": "2026-04-15",
+      "id": "dJp_59cjeQo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
