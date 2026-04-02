@@ -21,12 +21,12 @@ export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [active, setActive] = useState("Dashboard");
 
-  // ✅ LOAD DATA
+  // LOAD DATA
   useEffect(() => {
     loadTransactions();
   }, []);
 
-  // ✅ THEME TOGGLE WITH PERSISTENCE
+  // THEME TOGGLE WITH PERSISTENCE
   const toggleTheme = () => {
     const root = document.documentElement;
     const isDark = root.classList.contains("dark");
