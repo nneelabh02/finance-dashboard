@@ -16,7 +16,7 @@ export default function Sidebar({ active, setActive }) {
   ];
 
   return (
-    <div className="min-h-screen w-64 p-6 bg-white dark:bg-[#1E293B] border-r border-slate-100 dark:border-slate-700">
+    <div className="sticky top-0 min-h-screen w-64 p-6 bg-white dark:bg-[#1E293B] border-r border-slate-100 dark:border-slate-700">
 
       <h2 className="text-xl font-semibold text-indigo-500 mb-8">
         Finance
