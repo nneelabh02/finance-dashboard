@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { useFinanceStore } from "../store/useFinanceStore";
 
 import Sidebar from "../components/Sidebar";
@@ -41,7 +42,12 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex min-h-screen bg-slate-100 dark:bg-slate-900">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="flex min-h-screen bg-slate-100 dark:bg-slate-900"
+    >
 
       {/* Desktop Sidebar */}
       <div className="hidden md:block">
@@ -60,12 +66,17 @@ export default function Dashboard() {
       <div className="flex-1 p-4 md:p-8 space-y-6">
 
         {/* Header */}
-        <div className="flex justify-between items-center">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex justify-between items-center"
+        >
 
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="md:hidden p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700"
+              className="md:hidden p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200"
             >
               <Menu size={20} />
             </button>
@@ -78,32 +89,36 @@ export default function Dashboard() {
           <div className="flex items-center gap-2">
 
             {/* 🌙 Theme Toggle */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-200 dark:bg-slate-700"
+              className="p-2 rounded-lg bg-slate-200 dark:bg-slate-700 transition-colors duration-200"
             >
               🌙
-            </button>
+            </motion.button>
 
             {/* Add Button */}
             {role === "admin" && (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setOpen(true)}
                 className="
                   text-sm font-medium
                   bg-indigo-500 text-white px-4 py-2 rounded-xl
                   shadow-md hover:bg-indigo-600 hover:shadow-lg
-                  transition
+                  transition-all duration-200
                 "
               >
                 + Add
-              </button>
+              </motion.button>
             )}
 
             <RoleSwitcher />
 
           </div>
-        </div>
+        </motion.div>
 
         {/* Content */}
         {loading ? (
@@ -111,21 +126,36 @@ export default function Dashboard() {
         ) : error ? (
           <div className="text-red-500">{error}</div>
         ) : (
-          <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-6"
+          >
             <SummaryCards />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+            >
               <BalanceChart />
               <CategoryChart />
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
+            >
               <div className="md:col-span-2">
                 <TransactionsTable />
               </div>
               <Insights />
-            </div>
-          </>
+            </motion.div>
+          </motion.div>
         )}
       </div>
 
@@ -134,6 +164,6 @@ export default function Dashboard() {
         isOpen={open}
         onClose={() => setOpen(false)}
       />
-    </div>
+    </motion.div>
   );
 }

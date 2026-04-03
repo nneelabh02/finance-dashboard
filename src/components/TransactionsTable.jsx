@@ -116,9 +116,12 @@ export default function TransactionsTable() {
 
             {/* Body */}
             <tbody>
-              {filtered.map((t) => (
-                <tr
+              {filtered.map((t, index) => (
+                <motion.tr
                   key={t.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="
                     border-b
                     hover:bg-slate-50 dark:hover:bg-slate-800
@@ -149,19 +152,21 @@ export default function TransactionsTable() {
 
                   {role === "admin" && (
                     <td>
-                      <button
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         onClick={() => {
                           deleteTransaction(t.id);
                           toast.success("Deleted");
                         }}
-                        className="text-red-500 hover:text-red-600 text-sm"
+                        className="text-red-500 hover:text-red-600 text-sm transition-colors duration-200"
                       >
                         Delete
-                      </button>
+                      </motion.button>
                     </td>
                   )}
 
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
 
