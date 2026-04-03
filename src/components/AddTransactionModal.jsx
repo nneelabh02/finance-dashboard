@@ -22,7 +22,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
     }
 
     if (Number.isNaN(amountValue) || amountValue <= 0) {
-      toast.error("Amount must be a positive number");
+      toast.error("Invalid amount: please enter a valid positive number");
       return;
     }
 
