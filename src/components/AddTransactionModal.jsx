@@ -56,7 +56,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
           >
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl w-full max-w-md">
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl w-full max-w-md border border-slate-200 dark:border-slate-700 shadow-lg">
 
               <h2 className="text-lg font-semibold mb-4 text-slate-900 dark:text-white">
                 Add Transaction
