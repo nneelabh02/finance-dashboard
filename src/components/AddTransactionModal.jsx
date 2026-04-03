@@ -21,6 +21,12 @@ export default function AddTransactionModal({ isOpen, onClose }) {
       return;
     }
 
+    const amountPattern = /^\d+(\.\d{1,2})?$/;
+    if (typeof form.amount === "string" && !amountPattern.test(form.amount)) {
+      toast.error("Invalid amount: only numeric values are allowed");
+      return;
+    }
+
     if (Number.isNaN(amountValue) || amountValue <= 0) {
       toast.error("Invalid amount: please enter a valid positive number");
       return;
