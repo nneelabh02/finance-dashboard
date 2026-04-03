@@ -23,11 +23,14 @@ A modern finance dashboard built with React, TailwindCSS, and Zustand.
 
 ```bash
 npm install
-npm run dev
+npm run dev:full
 ```
 
-Start mock API:
+This runs both the frontend app and the mock API simultaneously using `concurrently`.
+
+If you prefer separate processes:
 
 ```bash
-npx json-server --watch db.json --port 3000
+npm run dev
+npm run server
 ```
