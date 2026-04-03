@@ -20,6 +20,13 @@
       "type": "expense",
       "date": "2026-05-02",
       "id": "GtmxM0Ur9Jo"
+    },
+    {
+      "amount": 2478,
+      "category": "Clothes",
+      "type": "expense",
+      "date": "2026-04-14",
+      "id": "kxVRV79jDBw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
