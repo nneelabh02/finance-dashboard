@@ -106,7 +106,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
 
               <div className="flex justify-end gap-2 mt-5">
 
-                <button onClick={onClose} className="text-sm">
+                <button onClick={onClose} className="text-sm text-white bg-slate-600 px-3 py-2 rounded-lg hover:bg-slate-700">
                   Cancel
                 </button>
 
