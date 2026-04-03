@@ -1,25 +1,25 @@
 {
   "transactions": [
     {
-      "id": "1",
-      "amount": 5000,
+      "amount": 50000,
       "category": "Salary",
       "type": "income",
-      "date": "2026-04-01"
+      "date": "2026-04-30",
+      "id": "IrNUL81d4LA"
     },
     {
-      "id": "2",
-      "amount": 1200,
-      "category": "Food",
+      "amount": 25000,
+      "category": "Home Loan",
       "type": "expense",
-      "date": "2026-04-02"
+      "date": "2026-05-02",
+      "id": "1zoApsPOwpA"
     },
     {
-      "amount": 2121,
-      "category": "cat",
+      "amount": 2000,
+      "category": "Internet",
       "type": "expense",
-      "date": "2026-04-15",
-      "id": "dJp_59cjeQo"
+      "date": "2026-05-02",
+      "id": "GtmxM0Ur9Jo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

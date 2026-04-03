@@ -32,7 +32,7 @@ export default function SortDropdown({ sortBy, setSort }) {
           bg-white dark:bg-slate-800
           text-slate-800 dark:text-white
           text-sm shadow-sm
-          transition-colors duration-200
+          transition-colors duration-100
         "
       >
         {selected?.label}

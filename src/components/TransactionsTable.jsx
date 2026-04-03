@@ -116,16 +116,13 @@ export default function TransactionsTable() {
 
             {/* Body */}
             <tbody>
-              {filtered.map((t, index) => (
-                <motion.tr
+              {filtered.map((t) => (
+                <tr
                   key={t.id}
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.02 }}
                   className="
                     border-b
                     hover:bg-slate-50 dark:hover:bg-slate-800
-                    transition
+                    transition-colors duration-150
                   "
                 >
                   <td className="py-2 text-slate-700 dark:text-slate-300">
@@ -164,7 +161,7 @@ export default function TransactionsTable() {
                     </td>
                   )}
 
-                </motion.tr>
+                </tr>
               ))}
             </tbody>
 
