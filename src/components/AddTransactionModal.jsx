@@ -14,13 +14,20 @@ export default function AddTransactionModal({ isOpen, onClose }) {
   });
 
   const handleSubmit = () => {
+    const amountValue = Number(form.amount);
+
     if (!form.amount || !form.category || !form.date) {
       toast.error("Fill all fields");
       return;
     }
 
+    if (Number.isNaN(amountValue) || amountValue <= 0) {
+      toast.error("Amount must be a positive number");
+      return;
+    }
+
     addTransaction({
-      amount: Number(form.amount),
+      amount: amountValue,
       category: form.category,
       type: form.type,
       date: form.date,
@@ -65,6 +72,9 @@ export default function AddTransactionModal({ isOpen, onClose }) {
               <div className="space-y-3">
 
                 <input
+                  type="number"
+                  min="0"
+                  step="0.01"
                   placeholder="Amount"
                   value={form.amount}
                   onChange={(e) =>
