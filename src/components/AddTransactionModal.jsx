@@ -56,7 +56,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
           >
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl w-full max-w-md border border-slate-200 dark:border-slate-700 shadow-lg">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl w-full max-w-md border border-slate-200 dark:border-slate-600 shadow-lg">
 
               <h2 className="text-lg font-semibold mb-4 text-slate-900 dark:text-white">
                 Add Transaction
@@ -70,7 +70,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setForm({ ...form, amount: e.target.value })
                   }
-                  className="w-full px-3 py-2 border rounded-lg dark:bg-slate-700"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
                 />
 
                 <input
@@ -79,7 +79,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setForm({ ...form, category: e.target.value })
                   }
-                  className="w-full px-3 py-2 border rounded-lg dark:bg-slate-700"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
                 />
 
                 <select
@@ -87,7 +87,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setForm({ ...form, type: e.target.value })
                   }
-                  className="w-full px-3 py-2 border rounded-lg dark:bg-slate-700"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
                 >
                   <option value="expense">Expense</option>
                   <option value="income">Income</option>
@@ -99,7 +99,7 @@ export default function AddTransactionModal({ isOpen, onClose }) {
                   onChange={(e) =>
                     setForm({ ...form, date: e.target.value })
                   }
-                  className="w-full px-3 py-2 border rounded-lg dark:bg-slate-700"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
                 />
 
               </div>
