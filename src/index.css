@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   font-family: "Inter", sans-serif;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  height: 100%;
 }
