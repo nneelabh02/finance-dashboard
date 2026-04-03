@@ -7,12 +7,10 @@ export default function Card({ children, className = "" }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
       className={`
-        bg-white/70 dark:bg-slate-900/40
-        backdrop-blur-xl
-        bg-clip-padding
+        bg-white dark:bg-slate-800
         p-5 md:p-6
         rounded-2xl
-        border border-white/40 dark:border-slate-600/40
+        border border-slate-100 dark:border-slate-700
         shadow-md dark:shadow-xl
         ${className}
       `}
