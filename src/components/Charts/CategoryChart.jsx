@@ -91,5 +91,6 @@ export default function CategoryChart() {
         ))}
       </div>
     </Card>
+    </motion.div>
   );
 }
