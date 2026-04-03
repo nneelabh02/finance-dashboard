@@ -65,9 +65,21 @@ export default function CategoryChart() {
                 <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
             </Pie>
-          <Tooltip wrapperStyle={{ backgroundColor: '#0f172a', borderRadius: 8, border: '1px solid #334155' }} contentStyle={{ backgroundColor: '#0f172a', border: 'none', color: '#f8fafc' }} itemStyle={{ color: '#f8fafc' }} />
-        </PieChart>
-      </ResponsiveContainer>
+            <Tooltip
+              wrapperStyle={{
+                backgroundColor: '#0f172a',
+                borderRadius: 8,
+                border: '1px solid #334155'
+              }}
+              contentStyle={{
+                backgroundColor: '#0f172a',
+                border: 'none',
+                color: '#f8fafc'
+              }}
+              itemStyle={{ color: '#f8fafc' }}
+            />
+          </PieChart>
+        </ResponsiveContainer>
 
       <div className="mt-4 grid grid-cols-2 gap-2">
         {data.map((item, index) => (
