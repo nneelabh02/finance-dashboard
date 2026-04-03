@@ -27,6 +27,13 @@
       "type": "expense",
       "date": "2026-04-14",
       "id": "kxVRV79jDBw"
+    },
+    {
+      "amount": 1500,
+      "category": "Papa",
+      "type": "income",
+      "date": "2026-04-29",
+      "id": "2MtSPD-YM8w"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
