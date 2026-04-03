@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+const STORAGE_KEY = "financeDashboardTransactions";
+
 // Static transaction data for demo purposes
 const mockTransactions = [
   {
@@ -39,6 +41,21 @@ const mockTransactions = [
   }
 ];
 
+const saveTransactions = (transactions) => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+};
+
+const loadSavedTransactions = () => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch (err) {
+    console.error("Failed to parse saved transactions", err);
+    return null;
+  }
+};
+
 export const useFinanceStore = create((set) => ({
   transactions: [],
   search: "",
@@ -51,22 +68,26 @@ export const useFinanceStore = create((set) => ({
   setSort: (val) => set({ sortBy: val }),
   setRole: (val) => set({ role: val }),
 
-  // LOAD STATIC DATA (no API call needed)
+  // LOAD STATIC DATA (no API call needed) + restore from localStorage
   loadTransactions: async () => {
     try {
       set({ loading: true, error: null });
 
-      // Simulate network delay for realistic loading experience
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      const stored = loadSavedTransactions();
+      const initialData = stored && stored.length ? stored : mockTransactions;
 
       set({
-        transactions: mockTransactions,
+        transactions: initialData,
         loading: false,
       });
+
+      if (!stored) saveTransactions(initialData);
     } catch (err) {
       console.error(err);
       set({
-        error: "Failed to fetch transactions",
+        error: "Failed to load transactions",
         loading: false,
       });
     }
@@ -78,15 +99,19 @@ export const useFinanceStore = create((set) => ({
       set({ loading: true });
 
       // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
       // Generate a simple ID for the new transaction
       const newTx = { ...tx, id: Date.now().toString() };
 
-      set((state) => ({
-        transactions: [newTx, ...state.transactions],
-        loading: false,
-      }));
+      set((state) => {
+        const updated = [newTx, ...state.transactions];
+        saveTransactions(updated);
+        return {
+          transactions: updated,
+          loading: false,
+        };
+      });
     } catch (err) {
       console.error(err);
       set({ loading: false });
@@ -99,15 +124,19 @@ export const useFinanceStore = create((set) => ({
       set({ loading: true });
 
       // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
-      set((state) => ({
-        transactions: state.transactions.filter((t) => t.id !== id),
-        loading: false,
-      }));
+      set((state) => {
+        const updated = state.transactions.filter((t) => t.id !== id);
+        saveTransactions(updated);
+        return {
+          transactions: updated,
+          loading: false,
+        };
+      });
     } catch (err) {
       console.error(err);
       set({ loading: false });
     }
-  },
+  }
 }));
